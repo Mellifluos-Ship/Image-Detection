@@ -1,2 +1,3 @@
 # Image-Detection
-Edge Detection for image through Webcam in OpenCV 
+Edge Detection for an Image in OpenCV
+The Code uses Canny Algorithm for edge detection 
