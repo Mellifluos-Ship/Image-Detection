@@ -29,21 +29,20 @@ int main(int argc, char** argv)
 	int ddepth = CV_16S;
 	Mat grad;
 
-	/// Generate grad_x and grad_y
+	
 	Mat grad_x, grad_y;
 	Mat abs_grad_x, abs_grad_y;
 
-	/// Gradient X
-	//Scharr( rawGray, grad_x, ddepth, 1, 0, scale, delta, BORDER_DEFAULT );
+	
+	
 	Sobel(rawGray, grad_x, ddepth, 1, 0, 3, scale, delta, BORDER_DEFAULT);
 	convertScaleAbs(grad_x, abs_grad_x);
 
-	/// Gradient Y
-	//Scharr( rawGray, grad_y, ddepth, 0, 1, scale, delta, BORDER_DEFAULT );
+	
 	Sobel(rawGray, grad_y, ddepth, 0, 1, 3, scale, delta, BORDER_DEFAULT);
 	convertScaleAbs(grad_y, abs_grad_y);
 
-	/// Total Gradient (approximate)
+	
 	addWeighted(abs_grad_x, 0.4, abs_grad_y, 0.4, 0, grad);
 	imshow("Gradient", grad);
 	Mat rawEdge;
